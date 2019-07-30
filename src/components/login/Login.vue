@@ -28,6 +28,8 @@
         <el-form-item>
           <el-button @click="startLogin">登录</el-button>
           <el-button @click="resetForm">重置</el-button>
+          <el-button @click="xss">攻击</el-button>
+          <el-button @click="xss1">关闭</el-button>
         </el-form-item>
       </el-form>
     </el-col>
@@ -63,7 +65,7 @@ export default {
         if (!valid) {
           return false
         }
-        axios.post('http://localhost:8888/api/private/v1/login', this.loginForm).then(res => {
+        axios.post('http://192.168.48.55:8888/api/private/v1/login', this.loginForm).then(res => {
           console.log(res)
           if (res.data.meta.status === 200) {
             this.$message({
